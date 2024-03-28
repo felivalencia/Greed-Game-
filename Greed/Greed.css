@@ -1,0 +1,22 @@
+body {
+    background-color: antiquewhite;
+}
+
+header {
+    display: flex;
+    justify-content: center;
+    color: blue;
+}
+
+
+#scoreCalculator {
+    display: flex;
+    justify-content: center;
+}
+
+#showScore{
+    display: flex;
+    justify-content: center;
+    font-size: 100px;
+    color: aqua;
+}

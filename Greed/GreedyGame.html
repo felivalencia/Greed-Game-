@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Greedy Dice Game</title>
+    <script src="/src/Greed.js"></script>
+    <link rel="stylesheet" type="text/css" href="Greed.css">
+</head>
+<body>
+    <header>
+        <h1>Welcome to the Greed game</h1>
+    </header>
+
+    <div id="scoreCalculator">
+        <input type="text" class="rand">
+        <input type="text" class="rand">
+        <input type="text" class="rand">
+        <input type="text" class="rand">
+        <input type="text" class="rand">
+        <button class="radomizer" onclick="ThrowDice('rand')">Random</button>
+    <button id="scoreGenerator" onclick="ScoreCalculator(1,2,3,4,5)">Greedy Points Calculator</button>
+    </div>
+    
+    <span id="showScore"></span>
+    
+</body>
+</html>
