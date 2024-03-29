@@ -42,27 +42,27 @@ function ScoreCalculator(...diceValues){
     const valuesArray = []; 
     let keyToMatch = "";
 
-    let currentDiceSet = 0;
-    for (let i = 0; i < diceValues.length; i++) {
-        currentDiceSet = 10 + diceValues[i];
-        //this if (and everything in it) should definitely be a function (will need a couple tweeks though)
-        if(i + 1 < diceValues.length) {
-            if(diceValues[i + 1] === diceValues[i]) {
-                currentDiceSet = valuesArray.at(-1) + 10
-                i++;
-            }
+    // let currentDiceSet = 0;
+    // for (let i = 0; i < diceValues.length; i++) {
+    //     currentDiceSet = 10 + diceValues[i];
+    //     //this if (and everything in it) should definitely be a function (will need a couple tweeks though)
+    //     if(i + 1 < diceValues.length) {
+    //         if(diceValues[i + 1] === diceValues[i]) {
+    //             currentDiceSet = valuesArray.at(-1) + 10
+    //             i++;
+    //         }
 
-            if(i + 1 < diceValues.length) {
-                if(diceValues[i + 1] === diceValues[i]){
-                    currentDiceSet = valuesArray.at(-1) + 10
-                    i++;
-                }
-            }
-        }
-        valuesArray.push(diceValues[i] + 10)
-        currentDiceSet = 0;
-    }
-    console.log(valuesArray)
+    //         if(i + 1 < diceValues.length) {
+    //             if(diceValues[i + 1] === diceValues[i]){
+    //                 currentDiceSet = valuesArray.at(-1) + 10
+    //                 i++;
+    //             }
+    //         }
+    //     }
+    //     valuesArray.push(diceValues[i] + 10)
+    //     currentDiceSet = 0;
+    // }
+    //console.log(valuesArray)
     do {
         i += valuesArray.length;
 
