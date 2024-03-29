@@ -1,5 +1,34 @@
 body {
-    background-color: antiquewhite;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100vh;
+    background: rgb(251,63,215);
+    background: radial-gradient(circle, rgba(251,63,215,0.8071603641456583) 16%, rgba(73,93,242,1) 33%, rgba(88,91,227,1) 54%, rgba(114,88,202,1) 79%, rgba(252,70,70,0.35057773109243695) 100%);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+}
+
+@keyframes gradientBG {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+a {
+    color: #fff; /* Default color of links */
+    text-decoration: none; /* Remove default underline */
+    transition: color 0.3s ease; /* Smooth transition for color change */
+}
+
+a:hover {
+    color: #ffcc00; /* Color of links on hover */
 }
 
 header {
@@ -8,10 +37,19 @@ header {
     color: blue;
 }
 
+.randContainer {
+    margin: 1em;
+    display: flex;
+}
 
-#scoreCalculator {
+#numberSection, #submitButtons {
     display: flex;
     justify-content: center;
+}
+
+#submitButtons > *{
+    font-size: 35px;
+    padding: 0.5%;
 }
 
 #showScore{

@@ -12,14 +12,28 @@
         <h1>Welcome to the Greed game</h1>
     </header>
 
-    <div id="scoreCalculator">
-        <input type="text" class="rand">
-        <input type="text" class="rand">
-        <input type="text" class="rand">
-        <input type="text" class="rand">
-        <input type="text" class="rand">
+    
+
+    <div id="numberSection">
+        <div class="randContainer">
+            <input type="text" class="rand">
+        </div>
+        <div class="randContainer">
+            <input type="text" class="rand">
+        </div>
+        <div class="randContainer">
+            <input type="text" class="rand">
+        </div>
+        <div class="randContainer">
+            <input type="text" class="rand">
+        </div>
+        <div class="randContainer">
+            <input type="text" class="rand">
+        </div>
+    </div>
+    <div id="submitButtons">
         <button class="radomizer" onclick="ThrowDice('rand')">Random</button>
-    <button id="scoreGenerator" onclick="ScoreCalculator(1,2,3,4,5)">Greedy Points Calculator</button>
+        <button id="scoreGenerator" onclick="ScoreCalculator()">Greedy Points Calculator</button>
     </div>
     
     <span id="showScore"></span>

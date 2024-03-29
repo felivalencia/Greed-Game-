@@ -24,8 +24,8 @@ console.log(ScoreCalculator(1,1,1,4,5)) //1050, passed
 console.log(ScoreCalculator(1,5,6,5,5)) //600, failed
 console.log(ScoreCalculator(1,3,3,3,5)) //450, failed
 
-function showScore(score) { 
-   const output = document.getElementById(showScore);
+function ShowScore(score) { 
+   const output = document.getElementById("showScore");
 
    output.innerText = score;
 };
@@ -34,15 +34,38 @@ function showScore(score) {
 //solution: search by number then increment by the length, not + 3
 //ex: last test above, loop 1 array = 1, loop 2 array = 3,3,3, loop 3 array = 5 
 
+
 function ScoreCalculator(...diceValues){
     let totalPoints = 0;
     diceValues.sort();
     //look through all the dice values and add up the score
     const valuesArray = []; 
     let keyToMatch = "";
-    let i = -1;
+
+    let currentDiceSet = 0;
+    for (let i = 0; i < diceValues.length; i++) {
+        currentDiceSet = 10 + diceValues[i];
+        //this if (and everything in it) should definitely be a function (will need a couple tweeks though)
+        if(i + 1 < diceValues.length) {
+            if(diceValues[i + 1] === diceValues[i]) {
+                currentDiceSet = valuesArray.at(-1) + 10
+                i++;
+            }
+
+            if(i + 1 < diceValues.length) {
+                if(diceValues[i + 1] === diceValues[i]){
+                    currentDiceSet = valuesArray.at(-1) + 10
+                    i++;
+                }
+            }
+        }
+        valuesArray.push(diceValues[i] + 10)
+        currentDiceSet = 0;
+    }
+    console.log(valuesArray)
     do {
         i += valuesArray.length;
+
         //after sorting the array we can look at each element and add up the score 
         valuesArray[0] = diceValues[i];
         valuesArray[1] = diceValues[i - 1];
