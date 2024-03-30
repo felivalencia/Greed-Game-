@@ -5,7 +5,6 @@ function ThrowDice(spot){
     }
 }
 
-
 const pointsTable = {
     111: 1000,
     666: 600,
@@ -25,40 +24,38 @@ function ShowScore(score) {
 
 function ScoreCalculator(...diceValues){
     let totalPoints = 0;
+    let combinations = Object.keys(pointsTable);
     diceValues.sort();
-    //look through all the dice values and add up the score
-    let keyToMatch = "";
 
-    let currentDiceSet = 0;
+    //look through all the dice values and add up the score
+    let currentDiceSet = "";
     for (let i = 0; i < diceValues.length; i++) {
-        currentDiceSet += diceValues[i];
+        currentDiceSet = diceValues[i].toString();
         //this if (and everything in it) should definitely be a function (will need a couple tweeks though)
         if(i + 1 < diceValues.length) {
             if(diceValues[i + 1] === diceValues[i]) {
-                currentDiceSet *= 11
+                currentDiceSet += diceValues[i + 1]
                 i++;
             }
 
             if(i + 1 < diceValues.length) {
                 if(diceValues[i + 1] === diceValues[i]){
-                    currentDiceSet += 100 * diceValues[i]
+                    currentDiceSet += diceValues[i + 1]
                     i++;
                 }
             }
         }
         //search the our points table for a combination of the three values as a string
-        if(Object.keys(pointsTable).includes(currentDiceSet.toString())){
+        if(combinations.includes(currentDiceSet)){
             totalPoints += pointsTable[currentDiceSet];
         }
-        //ugly code, too lazy to fix it
-        else if(Object.keys(pointsTable).includes(currentDiceSet.toString()[0])){
-            totalPoints += pointsTable[currentDiceSet.toString()[0]]
-            if(currentDiceSet.toString().length === 2)
-                totalPoints += pointsTable[currentDiceSet.toString()[1]]
+        //beautiful code
+        else if(combinations.includes(currentDiceSet[0])){
+            totalPoints += currentDiceSet.length === 2 ? pointsTable[currentDiceSet[0]] * 2 : pointsTable[currentDiceSet[0]]
         }
-        //console.log('totalPoints :', totalPoints);
         currentDiceSet = 0;
     }
 
     return totalPoints;
 }
+console.log(ScoreCalculator(4,2,3,3,4))
